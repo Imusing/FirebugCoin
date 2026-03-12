@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=FirebugCoin Core
+Comment=Connect to the FirebugCoin P2P Network
+Comment[de]=Verbinde mit dem FirebugCoin peer-to-peer Netzwerk
+Comment[fr]=FirebugCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=FirebugCoin, eşten eşe kriptografik sanal para birimi
+Exec=apterus-qt %u
+Terminal=false
+Type=Application
+Icon=lebowskiscoin128
+MimeType=x-scheme-handler/lebowskiscoin;
+Categories=Office;Finance;

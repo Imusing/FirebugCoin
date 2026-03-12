@@ -1,0 +1,33 @@
+# /etc/conf.d/apterusd: config file for /etc/init.d/apterusd
+
+# Config file location
+#apterusd_CONFIGFILE="/etc/lebowskiscoin/lebowskiscoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $apterusd_USER)
+#apterusd_PIDDIR="/var/run/apterusd"
+
+# What filename to give the pidfile
+#apterusd_PIDFILE="${apterusd_PIDDIR}/apterusd.pid"
+
+# Where to write apterusd data (be mindful that the blockchain is large)
+#apterusd_DATADIR="/var/lib/apterusd"
+
+# User and group to own apterusd process
+#apterusd_USER="lebowskiscoin"
+#apterusd_GROUP="lebowskiscoin"
+
+# Path to apterusd executable
+#apterusd_BIN="/usr/bin/apterusd"
+
+# Nice value to run apterusd under
+#apterusd_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+apterusd_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for apterusd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+apterusd_SIGTERM_TIMEOUT=60

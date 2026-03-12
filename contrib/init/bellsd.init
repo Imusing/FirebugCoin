@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  apterusd The lebowskiscoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: apterusd
+# processname: apterusd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/apterusd, see below
+if [ -f /etc/sysconfig/apterusd ]; then
+        . /etc/sysconfig/apterusd
+fi
+
+RETVAL=0
+
+prog=apterusd
+# you can override the lockfile via apterusd_LOCKFILE in /etc/sysconfig/apterusd
+lockfile=${apterusd_LOCKFILE-/var/lock/subsys/apterusd}
+
+# apterusd defaults to /usr/bin/apterusd, override with apterusd_BIN
+apterusd=${apterusd_BIN-/usr/bin/apterusd}
+
+# apterusd opts default to -disablewallet, override with apterusd_OPTS
+apterusd_opts=${apterusd_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $apterusd $apterusd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

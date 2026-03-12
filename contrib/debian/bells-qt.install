@@ -1,0 +1,6 @@
+usr/local/bin/apterus-qt usr/bin
+share/pixmaps/lebowskiscoin32.xpm usr/share/pixmaps
+share/pixmaps/lebowskiscoin16.xpm usr/share/pixmaps
+share/pixmaps/lebowskiscoin128.png usr/share/pixmaps
+debian/apterus-qt.desktop usr/share/applications
+debian/apterus-qt.protocol usr/share/kde4/services/
