@@ -138,3 +138,4 @@ stage/
 *.ipr
 src/junkcoin-cli
 src/junkcoin-cli
+src/apterus-qt.zip
